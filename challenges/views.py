@@ -52,13 +52,23 @@ diccionario={
 } 
 
 def monthly_challenge(request, month):
+    try:
+        challenge_text=diccionario[month]
+        return render(request, "challenges/challenge.html", {
+            "text": challenge_text,
+            "month_name": month
+        })
+    except:
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
+
+# def monthly_challenge(request, month):
     
-    month_var=diccionario.get(month)
+#     month_var=diccionario.get(month)
     
-    if month_var:
-        return HttpResponse(f"{month.capitalize()} : {month_var}")
-    else:
-        return HttpResponseNotFound("Mes no encontrado")
+#     if month_var:
+#         return HttpResponse(f"{month.capitalize()} : {month_var}")
+#     else:
+#         return HttpResponseNotFound("Mes no encontrado")
 
     
 def monthly_challenge_number(request, number):
