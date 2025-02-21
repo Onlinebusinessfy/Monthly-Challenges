@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 def index(request):
     return HttpResponse("Bienvenido")
 
+'''
 def monthly_challenge(request, month): 
     if month=='january':
         return HttpResponse("Walk for at least 30 min every day.")
@@ -32,25 +33,47 @@ def monthly_challenge(request, month):
         return HttpResponse("Celebrate Christmas and New Year.")
     else:
         return HttpResponseNotFound("Month not found")
+'''
 
 
-def dictionary(request, month):
-    diccionario={
-        "january":"Walk for at least 30 min every day.",
-        "february":"Go to the gym every day.",
-        "march":"Shower every day.",
-        "april":"Play soccer every day.",
-        "may":"Hang out with friends.",
-        "june":"Attend to school every day.",
-        "july":"Sleep at least 8 hours every day.",
-        "august":"Enjoy vacations.",
-        "september":"Finish all my tasks before the due date.",
-        "october":"Enjoy the time with my family every day.",
-        "november":"Start a personal project.",
-        "december":"Celebrate Christmas and New Year."
-    } 
+diccionario={
+    "january":"Walk for at least 30 min every day.",
+    "february":"Go to the gym every day.",
+    "march":"Shower every day.",
+    "april":"Play soccer every day.",
+    "may":"Hang out with friends.",
+    "june":"Attend to school every day.",
+    "july":"Sleep at least 8 hours every day.",
+    "august":"Enjoy vacations.",
+    "september":"Finish all my tasks before the due date.",
+    "october":"Enjoy the time with my family every day.",
+    "november":"Start a personal project.",
+    "december":"Celebrate Christmas and New Year."
+} 
+
+def monthly_challenge(request, month):
     
+    month_var=diccionario.get(month)
     
+    if month_var:
+        return HttpResponse(f"{month.capitalize()} : {month_var}")
+    else:
+        return HttpResponseNotFound("Mes no encontrado")
+
+    
+def monthly_challenge_number(request, number):
+    
+    meses_por_numero={}
+    
+    for i, (mes,cosa) in enumerate(diccionario.items(), start=1):
+        meses_por_numero[i]=(mes, cosa)        
+    
+    if number in meses_por_numero:
+        mes, cosa=meses_por_numero[number]
+        return HttpResponse(f"{mes.capitalize()} : {cosa}")
+    else:
+        return HttpResponseNotFound("Mes no encontrado")
+
     
     
 
