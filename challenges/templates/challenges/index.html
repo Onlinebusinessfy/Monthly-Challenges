@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Challenges de Samuel</title>
+</head>
+<body>
+    <header>
+        <a href="#">Indice</a>
+        <a href="#">Challenges</a>
+    </header>
+    <h1>Welcome to Samuel's Challenges</h1>
+    <h2>Aquí vas a encontrar todos los monthly challenges hechos de Samuel.</h2>
+    <h3>Desarrollo de Software Empresarial</h3>
+    
+    {% comment %} Tarea 2.2 {% endcomment %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input {
+            font-size: 16px;
+            padding: 8px;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 300px;
+        }
+        input::placeholder{
+            text-align:center;
+        }
+    </style>
+
+    <button>Este es un boton</button><br><br>
+    <button disabled>Este es un botón deshabilitado</button><br><br>
+
+    <input type="text" placeholder="Este es un TextBox"><br><br>
+    <input type="text" placeholder="Este es un TextBox deshabilitado" disabled><br><br>
+
+    <input type="checkbox"> CheckBox<br><br>
+    <input type="checkbox" checked> CheckBox marcado por defecto<br><br>
+
+    <input type="radio" name="opcion"> RadioButton<br><br>
+    <input type="radio" name="opcion" checked> RadioButton marcado por defecto<br><br>
+</body>
+</html>

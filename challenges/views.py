@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Bienvenido")
+    return render(request, "challenges/index.html")
 
 '''
 def monthly_challenge(request, month): 
